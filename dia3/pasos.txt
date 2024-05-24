@@ -1,0 +1,16 @@
+1. python3 -m venv vdjango
+2. source vdjango/bin/activate
+3. pip3 install django
+4. pip install --upgrade pip
+5. django-admin startproject mysite
+6. cd mysite
+7. python3 manage.py startapp holaMundoApp
+    en settings.py   
+        INSTALLED_APPS = [
+            "holaMundoApp",
+            ...
+        ]
+
+8. revisar archivo views.py y definimos la funcion 
+9. revisar en archivo urls.py la configuracion de nuestro proyecto.
+10.python3 manage.py runserver

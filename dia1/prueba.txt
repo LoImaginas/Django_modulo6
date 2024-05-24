@@ -1,0 +1,73 @@
+Paso 1: Instalar virtualenvwrapper
+    Pip3 install virtualenvwrapper
+
+Paso 2: Encontrar la ubicación del script virtualenvwrapper.sh
+    find / -name virtualenvwrapper.sh 2>/dev/null
+
+Paso 3: Actualizar ~/.zshrc con la ubicación correcta
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+    source /Users/crisylolett/Talento-digital/0044-1/MODULO6_DJANGO/vdjango/bin/virtualenvwrapper.sh
+
+Paso 4: Recargar la configuración del shell   
+    source ~/.zshrc
+
+Crear y Gestionar Entornos Virtuales
+Crear entornos virtuales
+    Crear el entorno virtual para ferreteria:
+        mkvirtualenv ferreteria
+        workon ferreteria
+        pip install django==3.2.4
+        pip freeze > requirements-ferreteria.txt
+        deactivate
+
+    Crear el entorno virtual para laesquina:
+        mkvirtualenv laesquina
+        workon laesquina
+        pip install 'django<3'
+        pip freeze > requirements-laesquina.txt
+        deactivate
+
+    Crear el entorno virtual para onlyflans:  
+        mkvirtualenv onlyflans
+        workon onlyflans
+        pip install django==3.2
+        pip freeze > requirements-onlyflans.txt
+        deactivate
+
+    Crear el entorno virtual para prestobar:
+        mkvirtualenv prestobar
+        workon prestobar
+        pip install astral
+        pip freeze > requirements-prestobar.txt
+        deactivate  
+
+    Crear el entorno virtual para taller:
+        mkvirtualenv taller
+        workon taller
+        pip install pytz==2019.3
+        pip freeze > requirements-taller.txt
+        deactivate
+
+  Comprimir los archivos de requisitos
+Una vez generado los archivos requirements-<nombre_entorno>.txt, 
+comprimir en un archivo ZIP llamado requerimientos-desafio1.zip.      
+        zip requerimientos-desafio1.zip requirements-*.txt
+
+pip3 freeze > requirements-ferreterua.txt
+-----------------------------------------------------------------------------------
+
+Crear el entorno virtual para calendariolunar:
+    mkvirtualenv calendariolunar
+    workon calendariolunar
+
+Instalar los requerimientos desde el archivo requirements.txt  
+Suponiendo que tienes un archivo requirements.txt en tu directorio de trabajo actual,
+instala los paquetes listados en él.
+    pip3 install -r requirements.txt
+    pip3 freeze > requirements-calendariolunar.txt
+    deactivate  
+
+Verificar y Subir los Archivos
+- Screenshot: Usa lsvirtualenv (y toma una captura de pantalla)
+Archivos ZIP y TXT: Sube requerimientos-desafio1.zip y requirements-calendariolunar.txt al LMS.

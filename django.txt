@@ -1,0 +1,69 @@
+0. revusar si tenemos instalado
+python3 -V
+Python 3.12.2
+
+pip3 -V
+pip 24.0
+
+pip3 list -- ver las dependencias instaladas globalmente (error)
+
+pip3 install django
+
+1. Etapa 1: preparacion del entorno virtual e instalacion de dependencias
+
+1.1 - python3 -m venv vdjango
+
+➔ python3 -m venv => Da la instrucción de creación de un entorno virtual, venv significa
+Virtual Envioronment
+➔ vdjango => Es el nombre del entorno virtual
+
+1.2 - Activar el entorno virtual
+
+en windows
+.\vdjango\bin\activate(no me funciona en bash)
+.\vdjango\bin\activate(no me funciona en zsh)
+call vdjango\scripts\activate (cmd)
+source vdjango/scripts/activate (git bash)
+
+en MAC
+source vdjango/bin/activate.fish (no me funciona) (fish)
+source vdjango/bin/activate (funciona en zsh)
+
+(vdjango) crisylolett@MacBook-Air MODULO6_DJANGO % (estoy posicionado dentro de mi entorno virtual)
+
+1.3 - desactivar el entorno virtual
+deactivate    (sale del entorno virtual)
+
+
+2. Etapa 2: Creacion de proyecto
+
+2.1 - las dependencias instaladas en el entorno
+pip3 list 
+
+resultado: pip 24.0
+
+2.2 - pip3 install django
+
+resultado:
+pip3 list 
+Package  Version
+-------- -------
+asgiref  3.8.1
+Django   5.0.6
+pip      24.0
+sqlparse 0.5.0
+
+3. Etapa 3: Creacion de proyecto
+
+django-admin startproject myFirstproject 
+
+4. Etapa 4: Desplegar nuestro proyecto
+4.1 - acceder a la carpeta del proyecto. 
+cd myFirstproject 
+
+4.2 - ejecutar el proyecto
+python3 manage.py runserver
+
+
+CONTROL C  (Ctrl+C) 
+DETIENE LA EJECUCION DEL PROGRAMA
