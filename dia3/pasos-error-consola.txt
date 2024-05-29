@@ -4,10 +4,10 @@ rm -rf vdjango
 
 
 
-echo "# Modulo6_django" >> README.md
+echo "# Django_modulo6" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/LoImaginas/Modulo6_django.git
+git remote add origin https://github.com/LoImaginas/Django_modulo6.git
 git push -u origin main

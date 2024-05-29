@@ -1,0 +1,135 @@
+Desafío guiado - Aplicación de web en Python
+● Para realizar este desafío debes haber estudiado previamente todo el material
+disponible en el LMS correspondiente a la unidad.
+● Una vez terminado el desafío, comprime la carpeta que contiene el desarrollo de los
+requerimientos solicitados y sube el .zip en el LMS.
+● Desarrollo desafío: Individual
+● Puntaje total: 10 puntos.
+● Tiempo desarrollo: 90 a 120 minutos
+● Para la realización del desafío deberás tener instalado en tu sistema operativo las
+siguientes herramientas y programas utilitarios: python, pip y virtualenvwrapper
+Descripción
+Un cliente nos solicita una aplicación web donde tenga la vista Home, About y Contact. En este sentido, la solución es entregarle un ejemplo utilizando Django. Para los contenidos de las vistas se pueden entregar textos de prueba generados con Lorem Ipsum.
+En el caso de la vista contact, se sugiere implementar un mini formulario de contacto con
+HTML.
+Tips: Las urls quedarían de la siguiente forma:
+from holaMundo.views import home,about, contact
+urlpatterns = [
+path('admin/', admin.site.urls),
+path('', home),
+path('about/', about),
+path('contact/', contact)
+]
+¡Importante! Las versiones utilizadas para este desafío, son para intencionar que
+es posible tener, en un mismo proyecto de Django, múltiples aplicaciones y que
+estas respondan a versiones distintas. Para obtener información de las últimas
+versiones de Django, puedes consultar la documentación oficial.
+Requerimientos
+1. Crea la vista para el Home de la aplicación.
+
+2. Crea la vista para el About de la aplicación.
+
+3. Crea la vista para el Contact de la aplicación y posee un mini formulario de contacto
+para ejemplificarle al cliente el resultado.
+
+
+Consideraciones y recomendaciones
+Para la realización del desafío deberás tener instalado en tu sistema operativo las
+siguientes herramientas y programas utilitarios: python, pip y virtualenvwrapper.
+
+Paso a Paso
+
+CONFIGURAR EL ENTORNO
+
+paso 1 : Crear entorno virtual
+    "bash" 
+    mkvirtualenv my_django_app
+  Para este caso, utilizare el comando 
+    python3 -m venv vdesafio2   esto porque no fue posible instalar virtualenvwrapper.
+
+ Activar el entorno virtual 
+   source vdesafio2/bin/activate
+
+paso 2 : Instalar Django
+    "bash" 
+    pip install django
+
+CREAR EL PROYECTO Y LA APLICACION Django
+
+paso 1 : Crear el proyecto Django 
+    "bash" 
+    django-admin startproject desafio_2
+    cd desafio_2
+
+paso 2 : Crear la aplicacion "holaMundo"
+    "bash" 
+        python3 manage.py startapp holaMundo
+
+
+CONFIGURAR LAS URLS DEL PROYECTO
+
+paso 1 : Editar "desafio_2/urls.py" para incluir las vistas "holaMundo"
+
+agregar 
+from holaMundo.views import home, about, contact
+
+
+    path('', home, name='home'),
+    path('about/', about, name='about'),
+    path('contact/', contact, name='contact'),
+
+
+CREAR LAS VISTAS EN "HOLAMUNDO"
+
+paso 1 : Editar "holaMundo/views.py" para definir las vistas Home, About y Contact
+
+Agregar:
+def home(request):
+    return render(request, 'home.html', {'title': 'Home'})
+
+def about(request):
+    return render(request, 'about.html', {'title': 'About'})
+
+def contact(request):
+    return render(request, 'contact.html', {'title': 'Contact'})
+
+CREAR LAS PLANTILLAS HTML
+
+- "holaMundo/templates/home.html"   
+- "holaMundo/templates/about.html"
+- "holaMundo/templates/contact.html"
+
+CONFIGURAR "SETTINGS.PY" PARA USAR LAS PLANTILLAS 
+
+paso 1 : Editar "desafio_2/settings.py" para incluir la aplicacion "holaMundo" y
+configurar las plantillas
+Agregar:
+INSTALLED_APPS =    
+     'holaMundo',
+
+MIGRATE
+python manage.py migrate
+
+EJECUTAR EL SERVIDOR DE DESARROLLO  
+
+paso 1 : ejecutar el servidor de desarrollo
+    python manage.py runserver
+
+    home: http://127.0.0.1:8000/
+    about:http://127.0.0.1:8000/about/
+    contact: http://127.0.0.1:8000/contact
+
+paso 2 : abrir el navegador y visitar las paginas creadas
+
+COMPRIMIR EL PROYECTO
+
+paso 1 : salir del entorno virtual
+    deactivate
+
+paso 2 : Volver 
+        cd ..
+        
+paso 3 : comprimir la carpeta del proyecto
+    zip -r desafio_2.zip desafio_2
+
+
